@@ -7,14 +7,8 @@
   <license>BSD</license>
   <!-- <url type="website">http://wiki.ros.org/interbotix_common_modules</url> -->
   <author email="solomon@trossenrobotics.com">Solomon Wiznitzer</author>
-
-  <!-- The *depend tags are used to specify dependencies -->
-  <!-- Dependencies can be catkin packages or system dependencies -->
-  <buildtool_depend>catkin</buildtool_depend>
-
-  <!-- The export tag contains other, unspecified, tags -->
+  <depend>geometry_msgs</depend>
   <export>
-    <!-- Other tools can request additional information be placed here -->
-
+    <build_type>ament_python</build_type>
   </export>
 </package>

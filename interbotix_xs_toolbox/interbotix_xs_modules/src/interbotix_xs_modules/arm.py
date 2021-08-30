@@ -1,8 +1,8 @@
 import math
-import rospy
+import rclpy
 import numpy as np
 import modern_robotics as mr
-from interbotix_xs_sdk.msg import *
+from xseries_msgs.msg import *
 from trajectory_msgs.msg import JointTrajectory
 from trajectory_msgs.msg import JointTrajectoryPoint
 from interbotix_common_modules import angle_manipulation as ang
@@ -69,7 +69,7 @@ class InterbotixArmXSInterface(object):
     def publish_positions(self, positions, moving_time=None, accel_time=None, blocking=True):
         self.set_trajectory_time(moving_time, accel_time)
         self.joint_commands = list(positions)
-        joint_commands = JointGroupCommand(self.group_name, self.joint_commands)
+        joint_commands = JointGroupCommand.Request(self.group_name, self.joint_commands)
         self.core.pub_group.publish(joint_commands)
         if blocking:
             rospy.sleep(self.moving_time)
